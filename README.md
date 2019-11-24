@@ -1,72 +1,114 @@
+All Java features for all version [click here](https://www.javatpoint.com/java-8-method-reference).
+
 ### Java 1.8
 
 Referenced Documents I followed was [java 8](https://www.journaldev.com/2389/java-8-features-with-examples)
+and [this](https://www.javatpoint.com/java-8-method-reference)
 
-Important Java 8 features are;
+Java 8 new features:
 
-1. forEach() method in Iterable interface
-2. default and static methods in Interfaces
-3. Functional Interfaces and Lambda Expressions
-4. Java Stream API for Bulk Data Operations on Collections
-5. Java Time API
-6. Collection API improvements
-7. Concurrency API improvements
-8. Java IO improvements
-9. Miscellaneous Core API improvements
+	1. Lambda expressions
+	2. Method references
+	3. Functional interfaces
+	4. Stream API
+	5. Default methods
+	6. Base64 Encode Decode
+	7. Static methods in interface
+	8. Optional class
+	9. Collectors class
+	10. ForEach() method
+	11. Parallel array sorting
+	12. Nashorn JavaScript Engine
+	13. Parallel Array Sorting
+	14. Type and Repating Annotations
+	15. IO Enhancements
+	16. Concurrency Enhancements
+	17. JDBC Enhancements etc.
 
+**Lambda expressions**
 
-**forEach() method in Iterable interface**
-
-Java 8 has introduced forEach method in java.lang.Iterable interface so that while writing code we focus on business logic only. forEach method takes java.util.function.Consumer object as argument, so it helps in having our business logic at a separate location that we can reuse
-
-
-```
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.function.Consumer;
-
-
-//Consumer implementation that can be reused
-class MyConsumer implements Consumer<Integer>{
-
-	public void accept(Integer t) {
-		System.out.println("Consumer impl Value::"+t);
-	}
-}
-
-
-public class Java8ForEach {
-
-	public static void main(String[] args) {
-		List<Integer> myList = new ArrayList<Integer>();
-		for(int i=0; i<10; i++) 
-			myList.add(i);
-		
-		
-		//Traversing using Iterator
-		Iterator<Integer> it = myList.iterator();
-		while(it.hasNext()){
-			Integer i = it.next();
-			System.out.println("Iterator Value::"+i);
-		}
-		
-		//Traversing through forEach method of Iterable with anonymous class
-		myList.forEach(new Consumer<Integer>() {
-			public void accept(Integer t) {
-				System.out.println("forEach anonymous class Value::"+t);
-			}
-		});
-		
-		//Traversing with Consumer interface implementation
-		MyConsumer action = new MyConsumer();
-		myList.forEach(action);
-		
-	}
-
-}
+Lambda expression helps us to write our code in functional style. It provides a clear and concise way to implement SAM interface(Single Abstract Method) by using an expression. It is very useful in collection library in which it helps to iterate, filter and extract data
 
 ```
+List<Integer> myList = new ArrayList<Integer>();
+for(int i=0; i<10; i++) 
+	myList.add(i);
+
+myList.forEach(i -> System.out.println(i));
+```
+
+**Method references**
+
+Java 8 Method reference is used to refer method of functional interface . It is compact and easy form of lambda expression. Each time when you are using lambda expression to just referring a method, you can replace your lambda expression with method reference.
+
+Example can be found on `org.samit.learning.example.Java8ForEach`
+
+```
+myList.forEach(System.out::println);
+```
+
+
+
+**Functional interfaces**
+
+
+**Stream API**
+
+
+**Default methods**
+
+
+**Base64 Encode Decode**
+
+
+**Static methods in interface**
+
+
+**Optional class**
+
+
+**Collectors class**
+
+
+
+**forEach() method **
+
+Java provides a new method forEach() to iterate the elements. It is defined in Iterable and Stream interfaces.
+
+It is a default method defined in the java.lang.Iterable interface. Collection classes which extends Iterable interface can use forEach() method to iterate elements.
+
+This method takes a single parameter which is a functional interface. So, you can pass lambda expression as an argument.
+
+
+forEach method takes java.util.function.Consumer object as argument, so it helps in having our business logic at a separate location that we can reuse
+
+
+an example can be found on this repo in class `org.samit.learning.example.Java8ForEach` 
+
+```
+List<Integer> myList = new ArrayList<Integer>();
+for(int i=0; i<10; i++) 
+	myList.add(i);
+
+myList.forEach(i -> System.out.println(i));
+	//OR//
+myList.forEach(System.out::println);
+
+```
+
+**Parallel array sorting**
+
+**Nashorn JavaScript Engine**
+
+**Parallel Array Sorting**
+
+**Type and Repating Annotations**
+
+**IO Enhancements**
+
+** Concurrency Enhancements**
+
+**JDBC Enhancements etc**
 
 **default and static methods in Interfaces**
 

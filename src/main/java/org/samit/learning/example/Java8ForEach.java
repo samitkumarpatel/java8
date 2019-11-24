@@ -23,24 +23,26 @@ public class Java8ForEach {
 			myList.add(i);
 		
 		
-		//traversing using Iterator
+		//Traversing using Iterator
 		Iterator<Integer> it = myList.iterator();
 		while(it.hasNext()){
 			Integer i = it.next();
 			System.out.println("Iterator Value::"+i);
 		}
 		
-		//traversing through forEach method of Iterable with anonymous class
+		//Traversing through forEach method of Iterable with anonymous class
 		myList.forEach(new Consumer<Integer>() {
 			public void accept(Integer t) {
 				System.out.println("forEach anonymous class Value::"+t);
 			}
 		});
 		
-		//traversing with Consumer interface implementation
+		//Traversing with Consumer interface implementation
 		MyConsumer action = new MyConsumer();
 		myList.forEach(action);
 		
+		//Traversing with forEach by using method reference
+		myList.forEach(System.out::println);
 	}
 
 }
