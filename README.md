@@ -71,7 +71,7 @@ myList.forEach(System.out::println);
 
 
 
-**forEach() method **
+**forEach() method**
 
 Java provides a new method forEach() to iterate the elements. It is defined in Iterable and Stream interfaces.
 
