@@ -1,4 +1,4 @@
-package org.samit.learning.udemy;
+package lambdas;
 
 import org.junit.Test;
 
